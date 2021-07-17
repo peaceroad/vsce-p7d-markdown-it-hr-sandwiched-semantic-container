@@ -1,6 +1,6 @@
 {
-  "name": "p7d-hr-sandwiched-semantic-container",
-  "displayName": "p7d-hr-sandwiched-semantic-container",
+  "name": "p7d-markdown-it-hr-sandwiched-semantic-container",
+  "displayName": "p7d-markdown-it-hr-sandwiched-semantic-container",
   "description": "change to semantic container, if sandwiched two `hr` of same symbol type and then first word has semantic.",
   "publisher": "peaceroad",
   "repository": {
