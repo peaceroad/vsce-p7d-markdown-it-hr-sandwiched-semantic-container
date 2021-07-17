@@ -4,7 +4,7 @@
   "description": "change to semantic container, if sandwiched two `hr` of same symbol type and then first word has semantic.",
   "publisher": "peaceroad",
   "repository": {
-    "url": "https://github.com/peaceroad/p7d-markdown-it-hr-sandwiched-semantic-container"
+    "url": "https://github.com/peaceroad/vsce-p7d-markdown-it-hr-sandwiched-semantic-container"
   },
   "version": "0.1.0",
   "engines": {
