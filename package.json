@@ -1,0 +1,44 @@
+{
+  "name": "p7d-hr-sandwiched-semantic-container",
+  "displayName": "p7d-hr-sandwiched-semantic-container",
+  "description": "change to semantic container, if sandwiched two `hr` of same symbol type and then first word has semantic.",
+  "publisher": "peaceroad",
+  "repository": {
+    "url": "https://github.com/peaceroad/p7d-markdown-it-hr-sandwiched-semantic-container"
+  },
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.57.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "activationEvents": [],
+  "contributes": {
+    "markdown.markdownItPlugins": true,
+    "markdown.previewStyles": [
+      "./style/hr-sandwiched-semantic-container.css"
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "p7d-markdown-it-hr-sandwiched-semantic-container",
+      "properties": {
+        "p7dMarkdownItHrSandwichedSemanticContainer.disableStyle": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable the default CSS of p7d-markdown-it-hr-sandwiched-semantic-container."
+        }
+      }
+    }
+  },
+  "main": "./extension.js",
+  "dependencies": {
+    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.1.7"
+  }
+}

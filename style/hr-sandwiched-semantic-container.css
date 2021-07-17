@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.vscode-body :is(section, aside, div)[class|="sc"] {
+  margin: 1.5em 0.25em;
+  padding: 0.75em 1em;
+  border: 1px solid currentcolor;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] p, li, dt, dd {
+  font-size: 0.95em;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] :first-child {
+  margin-block-start: 0;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] :last-child {
+  margin-block-end: 0;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] > p:first-child {
+  text-indent: 0;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] > p:first-child > span:first-child[class$="label"] {
+  display: inline-block;
+  text-decoration: underline solid currentcolor;
+  text-underline-offset: 0.25em;
+  margin-inline-end: 0.25em;
+  font-weight: bold;
+}
+.vscode-body :is(section, aside, div)[class|="sc"] > p:first-child > span:first-child[class$="label"] > span[class$="joint"] {
+  display: inline-block; /* for test-decoration:none */
+  text-decoration: none;
+}
+/* Second selector is applied, since insert a element before heading element of markdown preview
+.vscode-body :is(section, aside)[class|="sc"] > :is(h1, h2, h3, h4, h5, h6):first-child, */
+.vscode-body :is(section, aside)[class|="sc"] > a:first-child + :is(h1, h2, h3, h4, h5, h6) {
+  font-size: 0.9em;
+  font-weight: bold;
+  border-block-end: 1px solid currentcolor;
+  padding-block-end: 0.25em;
+  margin: 0 0 0.5em;
+}
+.vscode-body section.sc-lead {
+  margin: 1em;
+  padding: 0;
+  border-style: none;
+} 
+.vscode-body section.sc-lead p {
+  font-weight: bold;
+}
