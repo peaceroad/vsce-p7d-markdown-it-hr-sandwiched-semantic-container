@@ -1,6 +1,11 @@
 # Change Log
 
-## 0.1.0 - 2021/07/17
+## 0.2.0 - 2021/07/21
+
+- If only one paragraph is a semantics container, markdown typing may omit sandwiching two hr elements.
+- Fix bugs.
+
+## 0.1.1 - 2021/07/17
 
 - Fix repository url.
 

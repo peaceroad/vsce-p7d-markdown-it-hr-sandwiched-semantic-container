@@ -196,20 +196,40 @@ Notice. A paragraph 3.
 A paragraph 4.
 ```
 
-## Use
 
-```js
-const md = require('markdown-it')()
-            .use(require('@peaceroad/markdown-it-hr-sandwiched-semantic-container'));
+4.
 
-md.render(/*...*/) // See examples above
+
+If the semantics container consists of one paragraph, are you cumbersome to sandwich with two hr elements? Yes, you can omit them. (There is also an option that cannot be omitted.)
+
+```md
+A paragraph.
+
+---
+
+Notice. A notice.
+
+---
+
+
+A paragraph.
 ```
 
-## Install
+is the same as below.
 
-```bash
-npm install @peaceroad/markdown-it-hr-sandwiched-semantic-container
+```md
+A paragraph.
+
+Notice. A notice.
+
+A paragraph
 ```
+
+---
+
+Notice. You can also choose not to omit two hr element's markdown typing by checking "P7d Markdown It Hr Sandwiched Semantic Container: Require Hr At One Paragraph" of the user settings.
+
+---
 
 ## Example
 

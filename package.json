@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/peaceroad/vsce-p7d-markdown-it-hr-sandwiched-semantic-container"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.57.0"
   },
@@ -33,12 +33,17 @@
           "type": "boolean",
           "default": false,
           "description": "Disable the default CSS of p7d-markdown-it-hr-sandwiched-semantic-container."
+        },
+        "p7dMarkdownItHrSandwichedSemanticContainer.requireHrAtOneParagraph": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable no omitting two hr element's markdown typing in a one-paragraph semantics container. **Restart vscode to apply this feature**."
         }
       }
     }
   },
   "main": "./extension.js",
   "dependencies": {
-    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.1.7"
+    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.2.1"
   }
 }
