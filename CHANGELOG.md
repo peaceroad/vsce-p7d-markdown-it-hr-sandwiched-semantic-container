@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.1 - 2022/05/24
+
+- Temporary correction when Japanese semantic words are enclosed in **.
+- Semantic word adjustment.
+
 ## 0.2.0 - 2021/07/21
 
 - If only one paragraph is a semantics container, markdown typing may omit sandwiching two hr elements.
