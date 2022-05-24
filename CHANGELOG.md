@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.2 - 2022/05/24
+
+- ** Semantic** In Japanese, which I thought was fixed in 0.2.2, could not be processed if there was an element in the paragraph.
+- 
 ## 0.2.1 - 2022/05/24
 
 - Temporary correction when Japanese semantic words are enclosed in **.
