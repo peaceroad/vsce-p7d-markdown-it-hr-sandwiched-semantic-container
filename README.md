@@ -44,6 +44,8 @@ The notation is as follows:
 2. Write the word (`Semantics` in the example below) that means a semantic container in the string at the beginning of the first paragraph of this group of paragraphs.
 3. Immediately after the Semantics word, write one of the letters `.:。．：　`, which is a separator with the normal paragraph.
 
+Notice: In addition, half-width symbols required a space after them. [ver.0.3+]
+
 ```md
 ---
 
@@ -66,7 +68,9 @@ annotation (注釈)
 answer (answers,回答,答え)
 appendix ((付録|付属))
 assessments (評価,採点)
+author (著者)
 bibliography ((参考)?文献(一覧)?)
+book (magazine,(書籍|雑誌)(情報|案内)?,書誌(情報)?)
 caution (注意)
 chapter-toc (chapter toc,章目次)
 check (チェック,確認事項)
@@ -76,44 +80,57 @@ conclusion (終わりに,おわりに,結び,結論)
 credits (クレジット)
 danger (危険)
 dedication (献呈)
+editornote (editor('s)? note,編注)
 endnotes (後注,章末注,巻末注)
 epigraph (題辞,題句,題言)
 epilogue (エピローグ,終幕,終章)
 errata (正誤表)
+event (イベント(情報|案内)?,行事(情報|案内)?,催し物(情報|案内)?,出来事)
 example (例)
 faq (ＦＡＱ,よくある(質問|問い合わせ))
 feedback (フィードバック)
+first-published (first (published|publication),初出)
 foreword (((本書|日本語版)?の)?(刊行|発行|発刊)に寄せて)
 hint (ヒント)
 importance (important, (重要|重大)(情報|なこと)?)
-information (info, 案内,情報,インフォメーション)
+information (info,案内,(参考)?情報,インフォメーション)
 index (索引)
 interview (インタビュー)
 introduction (序論,序説,はじめに,始めに)
+issue (問題点,争点)
 keywords (キーワード,手がかり(語)?)
 lead (リード(文)?,導入(文)?)
 memo (メモ)
 note (ノート)
-notice (通知,通告,注目,(お)?(し|知)らせ)
+notice (通知,通告,告知,掲示,注目,(お)?(し|知)らせ)
 opinion (意見,見解,オピニオン)
 outline (概略,アウトライン)
 overview (概観,大要,あらまし)
 planning (plan,計画,案)
 point (ポイント,要点,論点)
+postscript (追記)
 preamble (序,序文)
 preface (前書き,まえがき)
 problem (問[い題]?)
+profile (プロフィール,人物紹介)
 prologue (プロローグ,序幕,序章)
-proposal (提言)
+proposal (プロポーザル,提言)
 pull-quote (pull quote, プル(・)?ク[オォ]ート,抜粋)
 qna (Q&A,Ｑ＆Ａ,質疑応答,一問一答,(問(題)?|質問)と(回答|答え))
+reference ([レリ]ファレンス,参照,参考)
+related-book (related (book|magazine),関連(した)?(本|書籍|雑誌))
+related-article (related article,関連(した)?記事)
+related-link (related link,関連(した)?リンク)
 relation (related,関連)
 recommendation (recommend(ed)?,勧告,勧め,推薦,リコメンド)
-source (出典)
+supplementation (補足(情報)?)
+solution (解答,解決(方法)?,解法)
 suggestion (suggest,提案,サジェスト)
 summary (要約,まとめ,あらすじ)
+task (課題)
 tip (tips,コツ,秘訣,助言)
 toc (目次)
+topic (トピック,話題)
 warning (warn,警告)
 ```
 
@@ -129,6 +146,18 @@ As a notation, the Semantics word itself may be made into a strong element as fo
 ---
 
 **Semantics.** A paragraph inside the container.
+
+A paragraph inside the container.
+
+---
+```
+
+, or [ver: 0.3+]
+
+```md
+---
+
+**Semantics**. A paragraph inside the container.
 
 A paragraph inside the container.
 
@@ -198,8 +227,6 @@ A paragraph 4.
 ```
 
 
-4.
-
 
 If the semantics container consists of one paragraph, are you cumbersome to sandwich with two hr elements? Yes, you can omit them. (There is also an option that cannot be omitted.)
 
@@ -238,11 +265,11 @@ Notice. You can also choose not to omit two hr element's markdown typing by chec
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 Notice. A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -256,11 +283,11 @@ A paragraph.
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 Notice 1. A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -274,11 +301,11 @@ A paragraph.
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 **Notice.** A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -317,11 +344,11 @@ A paragraph.
 [Markdown]
 # A heading.
 
-* * *
+---
 
 Lead. A lead.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -371,15 +398,15 @@ A paragraph.
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 Notice. A notice.
 
-* * *
+---
 
 Notice. A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -396,17 +423,17 @@ A paragraph.
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 Notice. A notice.
 
-* * *
+---
 
-* * *
+---
 
 Notice. A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
@@ -423,11 +450,11 @@ A paragraph.
 [Markdown]
 A paragraph.
 
-* * *
+---
 
 Notice 1. A notice.
 
-* * *
+---
 
 A paragraph.
 [HTML]
