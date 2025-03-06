@@ -472,3 +472,11 @@ A paragraph.
 <p>A paragraph.</p>
 
 ```
+
+
+# Build
+
+```samp
+$ npm run build
+$ vsce package
+```
