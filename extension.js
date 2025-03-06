@@ -1,54 +1,59 @@
-'use strict';
+import sContainer from '@peaceroad/markdown-it-hr-sandwiched-semantic-container'
+import fs from 'fs'
 
-const sContainer = require('@peaceroad/markdown-it-hr-sandwiched-semantic-container');
-const workspace = require('vscode').workspace;
-const fs = require('fs');
+import { workspace, commands } from 'vscode'
+const config = workspace.getConfiguration('p7dMarkdownItHrSandwichedSemanticContainer')
 
-async function activate() {
+export function activate (context) {
 
-  function cacheCssFile (cssFilePath, cachedCssFilePath) {
+  const cacheCssFile = (cssFilePath, cachedCssFilePath) => {
     if (!fs.existsSync(cachedCssFilePath)) {
       fs.writeFileSync(cachedCssFilePath, fs.readFileSync(cssFilePath));
     }
     return;
   }
 
-  function updateCss (cssFilePath, cachedCssFilePath) {
-    if (workspace.getConfiguration('p7dMarkdownItHrSandwichedSemanticContainer').get('disableStyle')) {
-      cacheCssFile(cssFilePath, cachedCssFilePath);
-      fs.writeFileSync(cssFilePath, '');
-    } else {
-      cacheCssFile(cssFilePath, cachedCssFilePath);
-      fs.writeFileSync(cssFilePath, fs.readFileSync(cachedCssFilePath));
-    }
-    return;
+  const opt = {
+    requireHrAtOneParagraph: config.get('requireHrAtOneParagraph'),
+    removeJointAtLineEnd: config.get('removeJointAtLineEnd'),
   }
-
-  let requireHrAtOneParagraph = workspace.getConfiguration('p7dMarkdownItHrSandwichedSemanticContainer').get('requireHrAtOneParagraph');
 
   const cssFile = 'hr-sandwiched-semantic-container.css';
   const cssFilePath = __dirname + '/style/' + cssFile;
   const cachedCssFilePath = __dirname + '/style/_' + cssFile;
 
   workspace.onDidChangeConfiguration(event => {
-    const cs = event.affectsConfiguration('p7dMarkdownItHrSandwichedSemanticContainer');
-    if (cs.get('disableStyle')) {
-      updateCss(cssFilePath, cachedCssFilePath);
+    if (event.affectsConfiguration('p7dMarkdownItHrSandwichedSemanticContainer.disableStyle')) {
+      if (config.get('disableStyle')) {
+        cacheCssFile(cssFilePath, cachedCssFilePath);
+        fs.writeFileSync(cssFilePath, '');
+      } else {
+        cacheCssFile(cssFilePath, cachedCssFilePath);
+        fs.writeFileSync(cssFilePath, fs.readFileSync(cachedCssFilePath));
+      }
+      commands.executeCommand('workbench.action.reloadWindow')
     }
-    /*
-    if (cs.get('requireHrAtOneParagraph')) {
-      requireHrAtOneParagraph = workspace.getConfiguration('p7dMarkdownItHrSandwichedSemanticContainer').get('requireHrAtOneParagraph');
+    if (event.affectsConfiguration('p7dMarkdownItHrSandwichedSemanticContainer.requireHrAtOneParagraph')) {
+      opt.requireHrAtOneParagraph = config.get('requireHrAtOneParagraph');
+      commands.executeCommand('workbench.action.reloadWindow')
     }
-    */
+    if (event.affectsConfiguration('p7dMarkdownItHrSandwichedSemanticContainer.removeJointAtLineEnd')) {
+      opt.removeJointAtLineEnd = config.get('removeJointAtLineEnd');
+      commands.executeCommand('workbench.action.reloadWindow')
+    }
+
+
   });
 
   return {
     extendMarkdownIt(md) {
       return md.use(sContainer, {
-        "requireHrAtOneParagraph": requireHrAtOneParagraph
-      });
+        requireHrAtOneParagraph: opt.requireHrAtOneParagraph,
+        removeJointAtLineEnd: opt.removeJointAtLineEnd,
+      })
     }
-  };
+  }
 }
 
-exports.activate = activate;
+export function deactivate () {}
+

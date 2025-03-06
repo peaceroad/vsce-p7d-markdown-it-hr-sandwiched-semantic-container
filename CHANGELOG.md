@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.0 - 2025/03/06
+
+- Update @peaceroad/markdown-it-hr-sandwiched-semantic-container@0.4.2 (<- 0.3.1)
+    - Fix the regular expression to check semantic labels.
+    - I wanted to check the notation ex . 2024年5月31日追記 (when there is a string before the intrinsic label).
+    - Add an option (removeJointAtLineEnd) to remove label joints if the label line ends with a label joint or is followed only by spaces.
+- Adjust CSS.
+
+Note. 75
+
 ## 0.3.0 - 2023/02/23
 
 - Fix to require half-width spaces for half-width delimiters like "example.html"

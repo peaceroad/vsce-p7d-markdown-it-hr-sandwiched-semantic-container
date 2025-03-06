@@ -1,8 +1,10 @@
 # p7d-markdown-it-hr-sandwiched-semantic-container
 
-This extension convert a paragraph group to a semantic group in VS Code's built-in markdown preview.
+---
 
-* * *
+Lead: This extension convert a paragraph group to a semantic group in VS Code's built-in markdown preview.
+
+---
 
 In markdown specifications, there are three types of Markdown symbols used to generate hr element.
 
@@ -34,7 +36,7 @@ Then it will be converted to the following In VS Code's built-in markdown previe
 
 Figure. Visual Studio Code with this Extension
 
-![Figure](docs/sc-screenshot.png)
+![](./docs/sc-screenshot.png)
 
 ## Rule
 
@@ -65,7 +67,7 @@ afterword (後書き,あとがき,跋文)
 agenda (議題,検討課題,アジェンダ)
 alert (警報,アラート)
 annotation (注釈)
-answer (answers,回答,答え)
+answer (answers,回答,答え?)
 appendix ((付録|付属))
 assessments (評価,採点)
 author (著者)
@@ -97,9 +99,10 @@ information (info,案内,(参考)?情報,インフォメーション)
 index (索引)
 interview (インタビュー)
 introduction (序論,序説,はじめに,始めに)
-issue (問題点,争点)
+issue (問題点,争点,論点,イシュー)
 keywords (キーワード,手がかり(語)?)
 lead (リード(文)?,導入(文)?)
+lesson (レッスン,教訓)
 memo (メモ)
 note (ノート)
 notice (通知,通告,告知,掲示,注目,(お)?(し|知)らせ)
@@ -107,8 +110,8 @@ opinion (意見,見解,オピニオン)
 outline (概略,アウトライン)
 overview (概観,大要,あらまし)
 planning (plan,計画,案)
-point (ポイント,要点,論点)
-postscript (追記)
+point (ポイント,要点)
+postscript ((([0-9]+年)?[0-9]+月[0-9]+日)?追記)
 preamble (序,序文)
 preface (前書き,まえがき)
 problem (問[い題]?)
@@ -117,17 +120,18 @@ prologue (プロローグ,序幕,序章)
 proposal (プロポーザル,提言)
 pull-quote (pull quote, プル(・)?ク[オォ]ート,抜粋)
 qna (Q&A,Ｑ＆Ａ,質疑応答,一問一答,(問(題)?|質問)と(回答|答え))
+question (質問,問(題)?)
 reference ([レリ]ファレンス,参照,参考)
 related-book (related (book|magazine),関連(した)?(本|書籍|雑誌))
 related-article (related article,関連(した)?記事)
 related-link (related link,関連(した)?リンク)
 relation (related,関連)
 recommendation (recommend(ed)?,勧告,勧め,推薦,リコメンド)
-supplementation (補足(情報)?)
+supplement (supplements,補足(情報)?)
 solution (解答,解決(方法)?,解法)
 suggestion (suggest,提案,サジェスト)
 summary (要約,まとめ,あらすじ)
-task (課題)
+task (課題,作業,タスク)
 tip (tips,コツ,秘訣,助言)
 toc (目次)
 topic (トピック,話題)
@@ -135,6 +139,13 @@ warning (warn,警告)
 ```
 
 ---
+
+## Notice. Exceptions to the rule of starting with semantic words
+
+There are cases where I want to start writing with `○年○月○日追記` or `○月○日追記`（Originally, `追記` is the semantic word here.）. Therefore, this is acceptable.
+
+---
+
 
 Notice. Currently, this semantics words are unstable.
 
@@ -253,11 +264,7 @@ Notice. A notice.
 A paragraph
 ```
 
----
-
 Notice. You can also choose not to omit two hr element's markdown typing by checking "P7d Markdown It Hr Sandwiched Semantic Container: Require Hr At One Paragraph" of the user settings.
-
----
 
 ## Example
 

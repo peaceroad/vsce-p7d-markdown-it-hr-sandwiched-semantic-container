@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/peaceroad/vsce-p7d-markdown-it-hr-sandwiched-semantic-container"
   },
-  "version": "0.3.0",
+  "version": "0.4.0",
   "engines": {
     "vscode": "^1.57.0"
   },
@@ -38,12 +38,23 @@
           "type": "boolean",
           "default": false,
           "description": "Enable no omitting two hr element's markdown typing in a one-paragraph semantics container. **Restart vscode to apply this feature**."
+        },
+        "p7dMarkdownItHrSandwichedSemanticContainer.removeJointAtLineEnd": {
+          "type": "boolean",
+          "default": false,
+          "description": "If a semantic word (plus a joint character) is not followed by a sentence (title) (on the same line), the joint character is removed."
         }
       }
     }
   },
-  "main": "./extension.js",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "build": "node build.js"
+  },
   "dependencies": {
-    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.3.1"
+    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.4.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
   }
 }
