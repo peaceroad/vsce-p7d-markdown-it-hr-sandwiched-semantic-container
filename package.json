@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/peaceroad/vsce-p7d-markdown-it-hr-sandwiched-semantic-container"
   },
-  "version": "0.4.0",
+  "version": "0.4.1",
   "engines": {
     "vscode": "^1.57.0"
   },
@@ -52,7 +52,7 @@
     "build": "node build.js"
   },
   "dependencies": {
-    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.4.2"
+    "@peaceroad/markdown-it-hr-sandwiched-semantic-container": "^0.4.3"
   },
   "devDependencies": {
     "esbuild": "^0.25.0"

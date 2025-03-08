@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.4.1 - 2025/03/008
+
+- Update @peaceroad/markdown-it-hr-sandwiched-semantic-container@0.4.3
+    - Fix: In option 'removeJointAtLineEnd', the joint processing for consecutive containers was dependent on the first container.
+
 ## 0.4.0 - 2025/03/06
 
 - Update @peaceroad/markdown-it-hr-sandwiched-semantic-container@0.4.2 (<- 0.3.1)

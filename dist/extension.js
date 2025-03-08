@@ -713,18 +713,20 @@ var setSemanticContainer = (state, n, hrType, sc, sci, opt) => {
     nextToken.children.splice(0, 0, lt_first, lt_span_open, lt_span_content, lt_span_close);
     nJump += 3;
   }
-  let jointIsAtLineEnd = false;
-  if (state.tokens[n + 1].children) {
-    if (state.tokens[n + 1].children[state.tokens[n + 1].children.length - 1].type === "text" && /^ *$/.test(state.tokens[n + 1].children[state.tokens[n + 1].children.length - 1].content)) {
-      jointIsAtLineEnd = true;
-      state.tokens[n + 1].children[state.tokens[n + 1].children.length - 1].content = "";
-    } else {
-      if (state.tokens[n + 1].children[state.tokens[n + 1].children.length - 1].type === "strong_close") {
+  if (opt.removeJointAtLineEnd) {
+    let jointIsAtLineEnd = false;
+    if (nextToken.children) {
+      if (nextToken.children[nextToken.children.length - 1].type === "text" && /^ *$/.test(nextToken.children[nextToken.children.length - 1].content)) {
         jointIsAtLineEnd = true;
+        nextToken.children[nextToken.children.length - 1].content = "";
+      } else {
+        if (nextToken.children[nextToken.children.length - 1].type === "strong_close") {
+          jointIsAtLineEnd = true;
+        }
       }
     }
+    if (jointIsAtLineEnd) return nJump;
   }
-  if (opt.removeJointAtLineEnd && jointIsAtLineEnd) return nJump;
   const ljt_span_open = new state.Token("span_open", "span", 1);
   ljt_span_open.attrJoin("class", "sc-" + semantics_default[sn].name + "-label-joint");
   const ljt_span_content = new state.Token("text", sc.actualNameJoint, 0);
@@ -805,11 +807,7 @@ var mditSemanticContainer = (md, option) => {
     removeJointAtLineEnd: false,
     mditStrongJa: false
   };
-  if (option !== void 0) {
-    for (let o in option) {
-      opt[o] = option[o];
-    }
-  }
+  if (option) Object.assign(opt, option);
   md.core.ruler.after("inline", "semantic_container", (state) => {
     semanticContainer(state, opt);
   });
